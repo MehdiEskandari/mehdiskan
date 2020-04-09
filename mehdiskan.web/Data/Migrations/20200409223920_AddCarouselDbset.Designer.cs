@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using mehdiskan.web.Data;
 
 namespace mehdiskan.web.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200409223920_AddCarouselDbset")]
+    partial class AddCarouselDbset
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -277,39 +279,6 @@ namespace mehdiskan.web.Data.Migrations
                     b.HasKey("CarouselId");
 
                     b.ToTable("Carousels");
-                });
-
-            modelBuilder.Entity("mehdiskan.web.Models.Contact", b =>
-                {
-                    b.Property<int>("ContactId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(750)")
-                        .HasMaxLength(750);
-
-                    b.Property<bool>("IsCheck")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("PhoneNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(12)")
-                        .HasMaxLength(12);
-
-                    b.Property<DateTime>("SubmitDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(120)")
-                        .HasMaxLength(120);
-
-                    b.HasKey("ContactId");
-
-                    b.ToTable("Contacts");
                 });
 
             modelBuilder.Entity("mehdiskan.web.Models.Group", b =>

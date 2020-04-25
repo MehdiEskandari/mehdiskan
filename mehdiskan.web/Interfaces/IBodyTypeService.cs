@@ -6,21 +6,21 @@ using System.Threading.Tasks;
 
 namespace mehdiskan.web.Interfaces
 {
-    interface IBodyTypeService
+    public interface IBodyTypeService
     {
         #region Add new BodyType
         BodyType AddBodyType(BodyType bodyType);
         Task<BodyType> AddBodyTypeAsync(BodyType bodyType);
         #endregion
 
-        #region Get BodyTypes
-        IEnumerable<BodyType> GetAllBodyTypes();
-        Task<IEnumerable<BodyType>> GetAllBodyTypesAsync();
+        #region Get bodyTypes
+        List<BodyType> GetBodyTypes();
+        Task<List<BodyType>> GetBodyTypesAsync();
         #endregion
 
         #region Get BodyType by id
-        BodyType BodyType(int bodyTypeId);
-        Task<BodyType> BodyTypeAsync(int bodyTypeId);
+        BodyType GetBodyTypeById(int bodyTypeId);
+        Task<BodyType> GetBodyTypeByIdAsync(int bodyTypeId);
         #endregion
 
         #region Update BodyType
@@ -31,12 +31,11 @@ namespace mehdiskan.web.Interfaces
         #region Remove BodyType
         void RemoveBodyType(int bodyTypeId);
         Task RemoveBodyTypeAsync(int bodyTypeId);
-
         #endregion
 
-        #region BodyType count
-        int BodyTypeCount();
-        Task<int> BodyTypeCountAsync();
+        #region BodyTypesCount
+        int BodyTypesCount();
+        Task<int> BodyTypesCountAsync();
         #endregion
     }
 }

@@ -1,31 +1,29 @@
-﻿using mehdiskan.web.Data;
-using System;
+﻿using mehdiskan.web.Models;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace mehdiskan.web.Interfaces
 {
-    interface IEyeColorService
+    public interface IEyeColorService
     {
         #region Add new EyeColor
-        EyeColor AddEyeColor(EyeColor eyeColor);
-        Task<EyeColor> AddEyeColorAsync(EyeColor eyeColor);
+        EyeColour AddEyeColor(EyeColour eyeColor);
+        Task<EyeColour> AddEyeColorAsync(EyeColour eyeColor);
         #endregion
 
         #region Get All EyeColor
-        List<EyeColor> GetAllEyeColor();
-        Task<List<EyeColor>> GetAllEyeColorAsync();
+        List<EyeColour> GetAllEyeColor();
+        Task<List<EyeColour>> GetAllEyeColorAsync();
         #endregion
 
         #region Get EyeColor by id
-        EyeColor GetEyeColorById(int eyeColorId);
-        Task<EyeColor> GetEyeColorByIdAsync(int eyeColorId);
+        EyeColour GetEyeColorById(int eyeColorId);
+        Task<EyeColour> GetEyeColorByIdAsync(int eyeColorId);
         #endregion
 
         #region Update EyeColor
-        EyeColor UpdateEyeColor(EyeColor eyeColor);
-        Task<EyeColor> UpdateEyeColorAsync(EyeColor eyeColor);
+        EyeColour UpdateEyeColor(EyeColour eyeColor);
+        Task<EyeColour> UpdateEyeColorAsync(EyeColour eyeColor);
         #endregion
 
         #region Remove EyeColor

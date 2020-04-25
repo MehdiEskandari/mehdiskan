@@ -18,7 +18,7 @@ namespace mehdiskan.web.Data
 
         public DbSet<Group> Groups { get; set; }
         
-        public DbSet<EyeColor> EyeColors { get; set; }
+        public DbSet<EyeColour> EyeColors { get; set; }
        
         public DbSet<Pattern> Patterns { get; set; }
 

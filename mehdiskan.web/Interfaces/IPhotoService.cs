@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace mehdiskan.web.Interfaces
 {
-    interface IPhotoService
+    public interface IPhotoService
     {
         #region Add new photo
         Photo AddPhoto(Photo photo, IFormFile imageFile);

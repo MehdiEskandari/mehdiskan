@@ -11,9 +11,11 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.3" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Pages\Admin\Patterns\" />
     <Folder Include="wwwroot\images\carousels\" />
     <Folder Include="wwwroot\images\thumbnails\" />
   </ItemGroup>

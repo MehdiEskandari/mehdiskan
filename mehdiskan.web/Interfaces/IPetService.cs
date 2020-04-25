@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace mehdiskan.web.Interfaces
 {
-    interface IPetService
+    public interface IPetService
     {
         #region Add new pet
         Pet AddPet(Pet pet, List<IFormFile> petPhotos);

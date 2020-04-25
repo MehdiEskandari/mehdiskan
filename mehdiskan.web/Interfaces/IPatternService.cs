@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace mehdiskan.web.Interfaces
 {
-    interface IPatternService
+    public interface IPatternService
     {
         #region Add Pattern
         Pattern AddPattern(Pattern pattern);

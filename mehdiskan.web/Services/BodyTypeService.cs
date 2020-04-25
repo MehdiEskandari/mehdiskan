@@ -65,9 +65,9 @@ namespace mehdiskan.web.Services
         /// <param name="bodyTypeId"></param>
         /// <returns></returns>
         #region Get BodyType by Id
-        public BodyType BodyType(int bodyTypeId) => _context.BodyTypes.SingleOrDefault(e=> e.BodyTypeId == bodyTypeId);
+        public BodyType GetBodyTypeById(int bodyTypeId) => _context.BodyTypes.SingleOrDefault(e=> e.BodyTypeId == bodyTypeId);
 
-        public async Task<BodyType> BodyTypeAsync(int bodyTypeId) => await _context.BodyTypes.SingleOrDefaultAsync(e =>e.BodyTypeId == bodyTypeId);
+        public async Task<BodyType> GetBodyTypeByIdAsync(int bodyTypeId) => await _context.BodyTypes.SingleOrDefaultAsync(e =>e.BodyTypeId == bodyTypeId);
 
         #endregion
 
@@ -77,8 +77,8 @@ namespace mehdiskan.web.Services
         /// </summary>
         /// <returns></returns>
         #region Get all BodyType
-        public IEnumerable<BodyType> GetAllBodyTypes() => _context.BodyTypes.ToList();
-        public async Task<IEnumerable<BodyType>> GetAllBodyTypesAsync() => await _context.BodyTypes.ToListAsync();
+        public List<BodyType> GetBodyTypes() => _context.BodyTypes.ToList();
+        public async Task<List<BodyType>> GetBodyTypesAsync() => await _context.BodyTypes.ToListAsync();
         #endregion
 
         /// <summary>
@@ -88,14 +88,14 @@ namespace mehdiskan.web.Services
         #region Remove BodyType
         public void RemoveBodyType(int bodyTypeId)
         {
-            var bodyType = BodyType(bodyTypeId);
+            var bodyType = GetBodyTypeById(bodyTypeId);
             _context.BodyTypes.Remove(bodyType);
             _context.SaveChanges();
         }
 
         public async Task RemoveBodyTypeAsync(int bodyTypeId)
         {
-            var bodyType = await BodyTypeAsync(bodyTypeId);
+            var bodyType = await GetBodyTypeByIdAsync(bodyTypeId);
             _context.BodyTypes.Remove(bodyType);
             await _context.SaveChangesAsync();
         }
@@ -146,9 +146,9 @@ namespace mehdiskan.web.Services
         /// <returns></returns>
         #region BodyType Count
 
-        public int BodyTypeCount() => _context.BodyTypes.Count();
+        public int BodyTypesCount() => _context.BodyTypes.Count();
 
-        public async Task<int> BodyTypeCountAsync()=> await _context.BodyTypes.CountAsync();
+        public async Task<int> BodyTypesCountAsync()=> await _context.BodyTypes.CountAsync();
         #endregion
 
     }

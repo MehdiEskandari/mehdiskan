@@ -9,7 +9,7 @@ using Group = mehdiskan.web.Models.Group;
 
 namespace mehdiskan.web.Interfaces
 {
-    interface IGroupService
+    public interface IGroupService
     {
         #region Add new group
         Group AddGroup(Group group, IFormFile imageFile);

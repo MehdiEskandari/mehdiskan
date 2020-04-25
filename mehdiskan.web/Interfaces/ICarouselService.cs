@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace mehdiskan.web.Interfaces
 {
-    interface ICarouselService
+    public interface ICarouselService
     {
         #region Add new carousel
         Carousel AddCarousel(Carousel carousel, IFormFile carouselFile);

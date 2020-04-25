@@ -1,5 +1,4 @@
-﻿using mehdiskan.web.Data;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -57,7 +56,7 @@ namespace mehdiskan.web.Models
 
         [ForeignKey("SubGroupId")]
         public Group SubGroup { get; set; }
-        public EyeColor EyeColor { get; set; }
+        public EyeColour EyeColor { get; set; }
         public Pattern Pattern { get; set; }
         public BodyType BodyType { get; set; }
         public ICollection<Photo> Photos { get; set; }

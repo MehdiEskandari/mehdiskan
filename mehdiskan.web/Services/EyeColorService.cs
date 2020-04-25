@@ -1,5 +1,6 @@
 ﻿using mehdiskan.web.Data;
 using mehdiskan.web.Interfaces;
+using mehdiskan.web.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
@@ -25,7 +26,7 @@ namespace mehdiskan.web.Services
         /// <param name="eyeColor"></param>
         /// <returns></returns>
         #region Add new EyeColor
-        public EyeColor AddEyeColor(EyeColor eyeColor)
+        public EyeColour AddEyeColor(EyeColour eyeColor)
         {
             try
             {
@@ -42,7 +43,7 @@ namespace mehdiskan.web.Services
             }
         }
 
-        public async Task<EyeColor> AddEyeColorAsync(EyeColor eyeColor)
+        public async Task<EyeColour> AddEyeColorAsync(EyeColour eyeColor)
         {
             try
             {
@@ -66,8 +67,8 @@ namespace mehdiskan.web.Services
         /// </summary>
         /// <returns></returns>
         #region Get EyeColors
-        public List<EyeColor> GetAllEyeColor() => _context.EyeColors.ToList();
-        public async Task<List<EyeColor>> GetAllEyeColorAsync() => await _context.EyeColors.ToListAsync();
+        public List<EyeColour> GetAllEyeColor() => _context.EyeColors.ToList();
+        public async Task<List<EyeColour>> GetAllEyeColorAsync() => await _context.EyeColors.ToListAsync();
         #endregion
 
         /// <summary>
@@ -76,8 +77,8 @@ namespace mehdiskan.web.Services
         /// <param name="eyeColorId"></param>
         /// <returns></returns>
         #region Get EyeColor by id
-        public EyeColor GetEyeColorById(int eyeColorId) => _context.EyeColors.SingleOrDefault(g => g.EyeColorId == eyeColorId);
-        public async Task<EyeColor> GetEyeColorByIdAsync(int eyeColorId) => await _context.EyeColors.SingleOrDefaultAsync(g => g.EyeColorId == eyeColorId);
+        public EyeColour GetEyeColorById(int eyeColorId) => _context.EyeColors.SingleOrDefault(g => g.EyeColorId == eyeColorId);
+        public async Task<EyeColour> GetEyeColorByIdAsync(int eyeColorId) => await _context.EyeColors.SingleOrDefaultAsync(g => g.EyeColorId == eyeColorId);
         #endregion
 
         /// <summary>
@@ -96,7 +97,7 @@ namespace mehdiskan.web.Services
         public async Task RemoveEyeColorAsync(int eyeColorId)
         {
             var EyeColor = await GetEyeColorByIdAsync(eyeColorId);
-            
+
 
             _context.EyeColors.Remove(EyeColor);
             await _context.SaveChangesAsync();
@@ -109,7 +110,7 @@ namespace mehdiskan.web.Services
         /// <param name="eyeColor"></param>
         /// <returns></returns>
         #region Update EyeColor
-        public EyeColor UpdateEyeColor(EyeColor eyeColor)
+        public EyeColour UpdateEyeColor(EyeColour eyeColor)
         {
             try
             {
@@ -125,7 +126,7 @@ namespace mehdiskan.web.Services
             }
         }
 
-        public async Task<EyeColor> UpdateEyeColorAsync(EyeColor eyeColor)
+        public async Task<EyeColour> UpdateEyeColorAsync(EyeColour eyeColor)
         {
             try
             {

@@ -12,6 +12,8 @@ using mehdiskan.web.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using mehdiskan.web.Interfaces;
+using mehdiskan.web.Services;
 
 namespace mehdiskan.web
 {
@@ -33,6 +35,9 @@ namespace mehdiskan.web
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddRazorPages();
+
+            services.AddTransient<IBodyTypeService, BodyTypeService>();
+            services.AddTransient<IEyeColorService, EyeColorService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

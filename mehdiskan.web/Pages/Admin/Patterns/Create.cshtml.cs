@@ -8,24 +8,26 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 
-namespace mehdiskan.web.Pages.Admin.EyeColors
+namespace mehdiskan.web.Pages.Admin.Patterns
 {
     public class CreateModel : PageModel
     {
-        private readonly IEyeColorService _eyeColorService;
+        private readonly IPatternService _patternServicee;
         private readonly ILogger<CreateModel> _logger;
 
+
         // step 1: add constructor
-        public CreateModel(IEyeColorService eyeColorService, ILogger<CreateModel> logger)
+        public CreateModel(IPatternService patternService, ILogger<CreateModel> logger)
         {
-            // step 2: inject ieyeColor service
-            _eyeColorService = eyeColorService;
+            // step 2: inject ipattern service
+            _patternServicee = patternService;
             _logger = logger;
         }
 
-        // step 3: create eyeColor property
+
+        // step 3: create pattern property
         [BindProperty]
-        public EyeColour EyeColor { get; set; }
+        public Pattern Pattern { get; set; }
 
 
         public void OnGet()
@@ -37,10 +39,10 @@ namespace mehdiskan.web.Pages.Admin.EyeColors
             if (ModelState.IsValid)
             {
                 // admin inputs is valid
-                if (await _eyeColorService.AddEyeColorAsync(EyeColor) != null)
+                if (await _patternServicee.AddPatternAsync(Pattern) != null)
                 {
                     // success
-                    TempData["Success"] = "New EyeColor successfully added.";
+                    TempData["Success"] = "New Pattern successfully added.";
                     return RedirectToPage("Index");
                 }
                 else
@@ -62,5 +64,6 @@ namespace mehdiskan.web.Pages.Admin.EyeColors
             return Page();
 
         }
+
     }
 }

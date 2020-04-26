@@ -1,7 +1,7 @@
-﻿using mehdiskan.web.Models;
-using System;
+﻿
+
+using mehdiskan.web.Models;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace mehdiskan.web.Interfaces
@@ -35,6 +35,12 @@ namespace mehdiskan.web.Interfaces
         #region Remove Pattern
         void RemovePattern(int patternId);
         Task RemovePatternAsync(int patternId);
+        #endregion
+
+        #region Pattern count
+        int PatternsCount();
+        Task<int> PatternsCountAsync();
+
         #endregion
     }
 }

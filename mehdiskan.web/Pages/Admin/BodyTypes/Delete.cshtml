@@ -1,22 +1,14 @@
 ﻿@page
 @model mehdiskan.web.Pages.Admin.BodyTypes.DeleteModel
 @{
-    Layout = "_LayoutAdmin";
-    ViewData["Title"] = "Delete body type";
-}
-
-@if (ViewData["Message"] != null)
-{
-    <div class="alert alert-danger">
-        <i class="fa fa-exclamation-circle fa-fw"></i> @ViewData["Title"]
-    </div>
+    ViewBag.Title = "Delete body type";
 }
 
 
 <div class="card border-secondary mb-3">
 
     <div class="card-header text-capitalize">
-        <i class="fa fa-plus fa-fw"></i> @ViewData["Title"]
+        <i class="fa fa-plus fa-fw"></i> @ViewBag.Title
     </div>
 
     <div class="card-body">

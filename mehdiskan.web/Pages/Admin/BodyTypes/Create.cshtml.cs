@@ -6,18 +6,21 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using mehdiskan.web.Models;
 using mehdiskan.web.Interfaces;
+using Microsoft.Extensions.Logging;
 
 namespace mehdiskan.web.Pages.Admin.BodyTypes
 {
-    public class CreateModel : Microsoft.AspNetCore.Mvc.RazorPages.PageModel
+    public class CreateModel : PageModel
     {
         private readonly IBodyTypeService _bodyTypeService;
+        private readonly ILogger<CreateModel> _logger;
 
         // step 1: add constructor
-        public CreateModel(IBodyTypeService bodyTypeService)
+        public CreateModel(IBodyTypeService bodyTypeService, ILogger<CreateModel> logger)
         {
             // step 2: inject ibodytype service
             _bodyTypeService = bodyTypeService;
+            _logger = logger;
         }
 
         // step 3: create bodytype property
@@ -44,12 +47,18 @@ namespace mehdiskan.web.Pages.Admin.BodyTypes
                 {
                     // db failure
                     ViewData["Message"] = "Database error, contact the developer to fix the error.";
+
+                    _logger.LogError($"BodyType {nameof(CreateModel)} database error.");
+
                     return Page();
                 }
             }
 
             // invalid inputs by admin
             ViewData["Message"] = "Your inputs is not valid.";
+
+            _logger.LogError($"BodyType {nameof(CreateModel)} invalid input");
+
             return Page();
 
         }

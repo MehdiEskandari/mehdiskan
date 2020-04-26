@@ -7,26 +7,20 @@ using mehdiskan.web.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace mehdiskan.web.Pages.Admin.BodyTypes
+namespace mehdiskan.web.Pages.Admin.Patterns
 {
     public class DeleteModel : PageModel
     {
-        private readonly IBodyTypeService _bodyTypeService;
+        private readonly IPatternService _patternServicee;
 
-
-        // step 1: add constructor
-        public DeleteModel(IBodyTypeService bodyTypeService)
+        public DeleteModel(IPatternService patternService)
         {
-            // step 2: inject ibodytype service
-            _bodyTypeService = bodyTypeService;
+            _patternServicee = patternService;
         }
-        
 
-        // step 3: create bodytype property
         [BindProperty]
-        public BodyType BodyType { get; set; }
-
-        // step 4: get bodytype by id  
+        public Pattern Pattern { get; set; }
+ 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
@@ -34,9 +28,9 @@ namespace mehdiskan.web.Pages.Admin.BodyTypes
                 return BadRequest();
             }
 
-            BodyType = await _bodyTypeService.GetBodyTypeByIdAsync(id.Value);
+            Pattern = await _patternServicee.GetPatternByIdAsync(id.Value);
 
-            if (BodyType == null)
+            if (Pattern == null)
             {
                 return NotFound();
             }
@@ -47,8 +41,8 @@ namespace mehdiskan.web.Pages.Admin.BodyTypes
         public async Task<IActionResult> OnPostAsync(int id)
         {
             // success
-            TempData["Success"] = "BodyType successfully removed.";
-            await _bodyTypeService.RemoveBodyTypeAsync(id);
+            TempData["Success"] = "Pattern successfully removed.";
+            await _patternServicee.RemovePatternAsync(id);
 
             return RedirectToPage("Index");
 

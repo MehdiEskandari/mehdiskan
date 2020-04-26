@@ -1,15 +1,15 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
+
 using mehdiskan.web.Interfaces;
 using mehdiskan.web.Models;
-using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Logging;
 
 namespace mehdiskan.web.Pages.Admin.BodyTypes
 {
-    public class IndexModel : Microsoft.AspNetCore.Mvc.RazorPages.PageModel
+    public class IndexModel : PageModel
     {
         private readonly IBodyTypeService _bodyTypeService;
 

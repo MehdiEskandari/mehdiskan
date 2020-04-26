@@ -1,14 +1,14 @@
 ﻿@page
 @model mehdiskan.web.Pages.Admin.EyeColors.CreateModel
 @{
-    Layout = "_LayoutAdmin";
+    ViewBag.Title = "Edit eye color";
 }
 
 
 @if (ViewData["Message"] != null)
 {
     <div class="alert alert-danger">
-        <i class="fa fa-exclamation-circle fa-fw"></i> @ViewData["Title"]
+        <i class="fa fa-exclamation-circle fa-fw"></i> @ViewData["Message"]
     </div>
 }
 
@@ -16,7 +16,7 @@
 <div class="card border-secondary mb-3">
 
     <div class="card-header text-capitalize">
-        <i class="fa fa-plus fa-fw"></i> @ViewData["Title"]
+        <i class="fa fa-plus fa-fw"></i> @ViewBag.Title
     </div>
 
     <div class="card-body">

@@ -15,9 +15,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\Admin\Patterns\" />
     <Folder Include="wwwroot\images\carousels\" />
     <Folder Include="wwwroot\images\thumbnails\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\.editorconfig" Link=".editorconfig" />
   </ItemGroup>
 
 </Project>

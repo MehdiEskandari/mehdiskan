@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace mehdiskan.web.Services
 {
-    public class PatternService:IPatternService
+    public class PatternService : IPatternService
     {
         private readonly ApplicationDbContext _context;
         private readonly ILogger<PatternService> _logger;
@@ -153,6 +153,19 @@ namespace mehdiskan.web.Services
                 return null;
             }
         }
+        #endregion
+
+
+        /// <summary>
+        /// Patterns Count.
+        /// </summary>
+        /// <returns></returns>
+        #region Pattern Count
+
+        public int PatternsCount() => _context.Patterns.Count();
+
+        public async Task<int> PatternsCountAsync() => await _context.Patterns.CountAsync();
+
         #endregion
     }
 }

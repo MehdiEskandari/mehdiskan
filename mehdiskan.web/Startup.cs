@@ -38,6 +38,7 @@ namespace mehdiskan.web
 
             services.AddTransient<IBodyTypeService, BodyTypeService>();
             services.AddTransient<IEyeColorService, EyeColorService>();
+            services.AddTransient<IPatternService, PatternService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

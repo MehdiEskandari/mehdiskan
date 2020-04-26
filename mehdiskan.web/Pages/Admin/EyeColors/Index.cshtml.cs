@@ -16,7 +16,7 @@ namespace mehdiskan.web.Pages.Admin.EyeColors
         // step 1: add constructor
         public IndexModel(IEyeColorService eyeColorService)
         {
-            // step 2: inject iEyeColor service
+            // step 2: inject ieyeColor service
             _eyeColorService = eyeColorService;
         }
 
@@ -28,7 +28,7 @@ namespace mehdiskan.web.Pages.Admin.EyeColors
 
         public async Task OnGet()
         {
-            // stepp 4: feed EyeColor property with data in database.
+            // stepp 4: feed eyeColor property with data in database.
             EyeColors = await _eyeColorService.GetAllEyeColorAsync();
             EyeColorsCount = await _eyeColorService.EyeColorsCountAsync();
 

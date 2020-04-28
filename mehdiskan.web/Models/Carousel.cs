@@ -7,13 +7,13 @@ namespace mehdiskan.web.Models
         [Key]
         public int CarouselId { get; set; }
 
-        [Required][StringLength(75)]
+        [StringLength(75)]
         public string ImageName { get; set; }
 
         [Required][StringLength(75)]
         public string Alt { get; set; }
 
-        [Required][StringLength(75)]
+        [Required]
         public byte Number { get; set; }
 
     }

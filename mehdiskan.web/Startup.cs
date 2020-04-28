@@ -14,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using mehdiskan.web.Interfaces;
 using mehdiskan.web.Services;
+using mehdiskan.web.Pages.Admin.Messages;
 
 namespace mehdiskan.web
 {
@@ -39,6 +40,9 @@ namespace mehdiskan.web
             services.AddTransient<IBodyTypeService, BodyTypeService>();
             services.AddTransient<IEyeColorService, EyeColorService>();
             services.AddTransient<IPatternService, PatternService>();
+            services.AddTransient<ICarouselService, CarouselService>();
+            services.AddTransient<IMessageService, MessageService>();
+            services.AddTransient<IPhotoService, PhotoService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

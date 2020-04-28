@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -66,6 +67,7 @@ namespace mehdiskan.web.Services
                 return null;
             }
         }
+
         #endregion
 
 
@@ -104,7 +106,9 @@ namespace mehdiskan.web.Services
         public void RemoveCarousel(int carouselId)
         {
             var carousel = GetCarouselById(carouselId);
-          
+
+            RemoveDeletedCarousel(carousel);
+
             _context.Carousels.Remove(carousel);
             _context.SaveChanges();
         }
@@ -112,6 +116,8 @@ namespace mehdiskan.web.Services
         public async Task RemoveCarouselAsync(int carouselId)
         {
             var carousel = await GetCarouselByIdAsync(carouselId);
+
+            RemoveDeletedCarousel(carousel);
 
             _context.Carousels.Remove(carousel);
             await _context.SaveChangesAsync();
@@ -157,6 +163,26 @@ namespace mehdiskan.web.Services
                 _logger.LogError($"{ex.StackTrace}\n{ex.Message}");
 
                 return null;
+            }
+        }
+        #endregion
+
+        #region Carousels Count
+
+
+        public int CarouselsCount() => _context.Carousels.Count();
+
+        public async Task<int> CarouselsCountAsync() => await _context.Carousels.CountAsync();
+
+        #endregion
+
+        #region Helpper
+        private void RemoveDeletedCarousel(Carousel carousel)
+        {
+            string carouselToDeletePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/carousel", carousel.ImageName);
+            if (File.Exists(carouselToDeletePath))
+            {
+                File.Delete(carouselToDeletePath);
             }
         }
         #endregion

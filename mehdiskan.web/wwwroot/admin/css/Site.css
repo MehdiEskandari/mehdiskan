@@ -1,2 +1,15 @@
-﻿body {
+﻿.mian-min-height{
+    min-height: 85vh;
+}
+
+.display-4{
+    text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.3);
+}
+
+.fixed-width-image-75{
+    width: 75px;
+}
+
+.max-width-520px{
+    max-width: 520px;
 }

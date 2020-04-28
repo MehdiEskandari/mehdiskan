@@ -32,5 +32,10 @@ namespace mehdiskan.web.Interfaces
         Task RemoveCarouselAsync(int carouselId);
         #endregion
 
+        #region Carousels Count
+        int CarouselsCount();
+        Task<int> CarouselsCountAsync();
+        #endregion
+
     }
 }

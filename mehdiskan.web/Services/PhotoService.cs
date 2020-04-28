@@ -4,6 +4,7 @@ using mehdiskan.web.Interfaces;
 using mehdiskan.web.Models;
 using mehdiskan.web.ViewModels;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
@@ -119,6 +120,7 @@ namespace mehdiskan.web.Services
                 PageCount = pageCount
             };
         }
+
         #endregion
 
         /// <summary>
@@ -203,6 +205,28 @@ namespace mehdiskan.web.Services
                 return null;
             }
         }
+        #endregion
+
+        #region Photos Count
+
+        public int PhotosCount() => _context.Photos.Count();
+
+        public async Task<int> PhotosCountAsync() => await _context.Photos.CountAsync();
+
+
+        #endregion
+
+        #region PetSelectListItem
+        public List<SelectListItem> GetSelectListItems() => _context.Pets.Select(p => new SelectListItem { 
+            Text = p.Title,
+            Value = p.PetId.ToString()
+        }).ToList();
+
+        public async Task<List<SelectListItem>> GetSelectListItemsAsync() => await _context.Pets.Select(p => new SelectListItem
+        {
+            Text = p.Title,
+            Value = p.PetId.ToString()
+        }).ToListAsync();
         #endregion
     }
 }

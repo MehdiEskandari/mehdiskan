@@ -1,6 +1,7 @@
 ﻿using mehdiskan.web.Models;
 using mehdiskan.web.ViewModels;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,11 @@ namespace mehdiskan.web.Interfaces
         Task<Photo> GetPhotoByIdAsync(int photoId);
         #endregion
 
+        #region PetSelectListItem
+        List<SelectListItem> GetSelectListItems();
+        Task<List<SelectListItem>> GetSelectListItemsAsync();
+        #endregion
+
         #region Update photo
         Photo UpdatePhoto(Photo photo, IFormFile imageFile);
         Task<Photo> UpdatePhotoAsync(Photo photo, IFormFile imageFile);
@@ -39,6 +45,12 @@ namespace mehdiskan.web.Interfaces
         List<Photo> SearchPhoto(string alt);
         Task<List<Photo>> SearchPhotoAsync(string alt);
         #endregion
+
+        #region Photo count
+        int PhotosCount();
+        Task<int> PhotosCountAsync();
+        #endregion
+
 
     }
 }
